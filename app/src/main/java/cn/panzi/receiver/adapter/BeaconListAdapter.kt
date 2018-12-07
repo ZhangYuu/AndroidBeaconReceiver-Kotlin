@@ -14,11 +14,6 @@ import android.content.Context
 import android.graphics.Color
 import android.media.RingtoneManager
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContextCompat.getSystemService
-
-//import android.support.v7.app.AppCompatActivity
-//import android.support.v4.app.NotificationCompat
-
 
 
 class BeaconListAdapter(
@@ -33,7 +28,6 @@ class BeaconListAdapter(
 
     /*Add notification*/
 
-    /*
     private fun test(){
         val notification = NotificationCompat.Builder(this,"channel id test")
                 .setSmallIcon(R.drawable.icon_don_s)
@@ -48,7 +42,6 @@ class BeaconListAdapter(
         //        val notificationManager = ContextCompat.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(1, notification)
     }
-    */
 
     /*Add notification End*/
 
@@ -58,10 +51,12 @@ class BeaconListAdapter(
 
     override fun onBindViewHolder(holder: MyHolder, p1: Int) {
         var name = beaconList[p1].id1.toString()
-        if (name == "00000000-0000-0000-0000-000000000000"){
-            name = "test001"
-        }
         if (name == "00000000-0000-0000-0000-000000000001"){
+            name = "test001"
+            test()
+            //想在这里调用notification
+        }
+        if (name == "11111111-1111-1111-1111-111111111111"){
             name = "test002"
         }
         val distance = beaconList[p1].distance.toString()
