@@ -34,22 +34,37 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         setContentView(R.layout.activity_main)
         initView()
         requestPermission()
-        test()
+        //test("test","hugetest")
     }
 
 //////////////////
-    private fun test(){
+    open fun Notify_1(title:String,content:String){
         val notification = NotificationCompat.Builder(this,"channel id test")
                 .setSmallIcon(R.drawable.icon_don_s)
                 //.setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.icon_don))
-                .setContentTitle("huge test")
-                .setContentText("Test Test Test")
+                .setContentTitle(title)
+                .setContentText(content)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setVibrate(longArrayOf(300, 600, 300, 600))
                 .setLights(Color.RED, 1000, 1000)
                 .build()
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-    //        val notificationManager = ContextCompat.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        //        val notificationManager = ContextCompat.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.notify(1, notification)
+    }
+
+    open fun Notify_2(title:String,content:String){
+        val notification = NotificationCompat.Builder(this,"channel id test")
+                .setSmallIcon(R.drawable.icon_don_s)
+                //.setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.icon_don))
+                .setContentTitle(title)
+                .setContentText(content)
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setVibrate(longArrayOf(300, 600, 300, 600))
+                .setLights(Color.RED, 1000, 1000)
+                .build()
+        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        //        val notificationManager = ContextCompat.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.notify(1, notification)
     }
 
@@ -63,7 +78,7 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
         val linearLayoutManager = androidx.recyclerview.widget.LinearLayoutManager(this)
         linearLayoutManager.orientation = RecyclerView.VERTICAL
         recycle_view.layoutManager = linearLayoutManager
-        recycle_view.adapter = BeaconListAdapter(beaconList)
+        recycle_view.adapter = BeaconListAdapter(beaconList,this)
     }
 
     /**
