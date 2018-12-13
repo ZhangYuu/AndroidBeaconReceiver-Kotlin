@@ -22,7 +22,7 @@ class BeaconListAdapter(
 
 
     /*
-    尝试在这里添加notificationmanager没成功
+    尝试在这里创建notificationmanager没成功
      */
     /*Add notification
     private fun test(){
@@ -50,24 +50,18 @@ class BeaconListAdapter(
         var name = beaconList[p1].id1.toString()
         var check = 0
         if (name == "00000000-0000-0000-0000-000000000001"){
-            name = "test001"
-            check(1)
-            ctxt.Notify_1("what?","is this a test?")
-          //  test()
-            //想在这里调用notification
+            name = "Yvonne Test"
+            //callback notification in MainActivity
+            ctxt.notifyScan("Peter Test","Test-1: Now Yvonne Comes",R.drawable.icon_yvonne,1)
         }
         if (name == "11111111-1111-1111-1111-111111111111"){
-            name = "test002"
-            check(2)
+            name = "Peter Test"
+            ctxt.notifyScan("Yvonne Test","Test-2: Here Peter Comes",R.drawable.icon_peter,2)
         }
         val distance = beaconList[p1].distance.toString()
         holder.commonCard.setCardTitleText(name)
         holder.commonCard.setCardSubscribeText(distance)
         holder.commonCard.setCardImageRes(R.mipmap.ic_launcher)
-    }
-
-    open fun check(noti:Int):Int{
-        return noti
     }
 
     class MyHolder(itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {

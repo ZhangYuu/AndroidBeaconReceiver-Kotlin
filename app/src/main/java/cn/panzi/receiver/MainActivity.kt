@@ -38,10 +38,11 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
     }
 
 //////////////////
-    open fun Notify_1(title:String,content:String){
+    open fun notifyScan(title:String,content:String,iconPath:Int,notifyId:Int){
         val notification = NotificationCompat.Builder(this,"channel id test")
                 .setSmallIcon(R.drawable.icon_don_s)
-                //.setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.icon_don))
+                .setLargeIcon(android.graphics.BitmapFactory.decodeResource(resources,iconPath))//R.drawable.icon_don))
+                //.setLargeIcon(android.graphics)
                 .setContentTitle(title)
                 .setContentText(content)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
@@ -50,24 +51,8 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
                 .build()
         val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         //        val notificationManager = ContextCompat.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(1, notification)
+        notificationManager.notify(notifyId, notification)
     }
-
-    open fun Notify_2(title:String,content:String){
-        val notification = NotificationCompat.Builder(this,"channel id test")
-                .setSmallIcon(R.drawable.icon_don_s)
-                //.setLargeIcon(BitmapFactory.decodeResource(resources, R.drawable.icon_don))
-                .setContentTitle(title)
-                .setContentText(content)
-                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                .setVibrate(longArrayOf(300, 600, 300, 600))
-                .setLights(Color.RED, 1000, 1000)
-                .build()
-        val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        //        val notificationManager = ContextCompat.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.notify(1, notification)
-    }
-
 ///////////////////
     /**
      * 初始化view
