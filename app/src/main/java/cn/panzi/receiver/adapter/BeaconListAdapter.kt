@@ -48,15 +48,20 @@ class BeaconListAdapter(
 
     override fun onBindViewHolder(holder: MyHolder, p1: Int) {
         var name = beaconList[p1].id1.toString()
-        var check = 0
+        //添加提示
         if (name == "00000000-0000-0000-0000-000000000001"){
-            name = "Yvonne Test"
+            name = "Yvonne's Beacon"
             //callback notification in MainActivity
-            ctxt.notifyScan("Peter Test","Test-1: Now Yvonne Comes",R.drawable.icon_yvonne,1)
+            ctxt.notifyScan("Yvonne's Beacon","Test-1: Now Yvonne Comes",R.drawable.icon_yvonne,1)
         }
         if (name == "11111111-1111-1111-1111-111111111111"){
-            name = "Peter Test"
-            ctxt.notifyScan("Yvonne Test","Test-2: Here Peter Comes",R.drawable.icon_peter,2)
+            name = "Peter's Beacon"
+            ctxt.notifyScan("Peter's Beacon","Test-2: Here Peter Comes",R.drawable.icon_peter,2)
+        }
+        if (name == "00000000-0000-0000-0000-000000000002"){
+            name = "ZhangYu's Beacon"
+            //callback notification in MainActivity
+            ctxt.notifyScan("ZhangYu's Beacon","Test-3: ZhangYu's Beacon Works",R.drawable.icon_don,3)
         }
         val distance = beaconList[p1].distance.toString()
         holder.commonCard.setCardTitleText(name)
