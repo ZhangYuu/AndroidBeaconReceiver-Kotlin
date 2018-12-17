@@ -1,5 +1,6 @@
 package cn.panzi.receiver
 
+import android.app.Notification
 import android.content.pm.PackageManager
 import android.graphics.Region
 import android.os.Bundle
@@ -40,11 +41,12 @@ class MainActivity : AppCompatActivity(), BeaconConsumer {
 //////////////////
     open fun notifyScan(title:String,content:String,iconPath:Int,notifyId:Int){
         val notification = NotificationCompat.Builder(this,"channel id test")
+                .setStyle(NotificationCompat.BigTextStyle().bigText(content))   //多行显示
                 .setSmallIcon(R.drawable.icon_don_s)
                 .setLargeIcon(android.graphics.BitmapFactory.decodeResource(resources,iconPath))//R.drawable.icon_don))
                 //.setLargeIcon(android.graphics)
                 .setContentTitle(title)
-                .setContentText(content)
+                //.setContentText(content)     //单行显示
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setVibrate(longArrayOf(300, 600, 300, 600))
                 .setLights(Color.RED, 1000, 1000)

@@ -52,7 +52,7 @@ class BeaconListAdapter(
         if (name == "00000000-0000-0000-0000-000000000001"){
             name = "Yvonne's Beacon"
             //callback notification in MainActivity
-            ctxt.notifyScan("Yvonne's Beacon","Test-1: Now Yvonne Comes",R.drawable.icon_yvonne,1)
+            ctxt.notifyScan("Yvonne's Beacon","Test-1: Now Yvonne Comes \n https://www.ubtshield.com",R.drawable.icon_yvonne,1)
         }
         if (name == "11111111-1111-1111-1111-111111111111"){
             name = "Peter's Beacon"
